@@ -1,0 +1,5 @@
+{
+  "uuid": "%uuid%",
+  "name": "EinfachMCAddon",
+  "mainClass": "de.einfachalex.einfachmc.EinfachMCAddon"
+}
