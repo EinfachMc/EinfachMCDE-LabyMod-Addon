@@ -16,7 +16,7 @@ import java.util.List;
 public class EinfachMCAddon extends LabyModAddon {
 
 	private static String prefix = "[EMC-Addon]";
-	private static String ip = "";
+	private String ip = "";
 	private static EinfachMCAddon instance;
 	
 	
@@ -39,40 +39,46 @@ public class EinfachMCAddon extends LabyModAddon {
 		instance = this;
 		
 		getApi().getEventManager().registerOnJoin(serverData -> {
-            String ip = serverData.getIp();          
+            ip = serverData.getIp();
+            System.out.println(ip);
         });
 		
 		getApi().getEventManager().register(new MessageSendEvent(){
 			public boolean onSend(String message){
 				message = message.toLowerCase();
+				System.out.println(ip);
+				System.out.println("FETTI");
 				if(ip.equalsIgnoreCase("einfachmc.de")){
+					System.out.println("HALLO ES GEHT");
 					switch(message){
 						case "/hub":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							return true;
+							break;
 						case "/l":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							return true;
+							break;
 						case "/lobby":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							return true;
+							break;
 						case "/coins":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger coins set 1");
-							return true;
+							break;
 						case "/gm 0":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 0");
-							return true;
+							break;
 						case "/gm 1":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 1");
-							return true;
+							break;
 						case "/gm 2":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 2");
-							return true;
+							break;
 						case "/gm 3":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 3");
-							return true;
+							break;
 					}
+					return true;
 				}		
+				System.out.println("KACK ADDON");
 				return false;
 			}
 		});
