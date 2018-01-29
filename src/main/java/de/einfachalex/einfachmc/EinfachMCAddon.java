@@ -39,9 +39,7 @@ public class EinfachMCAddon extends LabyModAddon {
 		instance = this;
 		
 		getApi().getEventManager().registerOnJoin(serverData -> {
-
             ip = serverData.getIp();
-            System.out.println(ip);
         });       
 
 
@@ -49,39 +47,36 @@ public class EinfachMCAddon extends LabyModAddon {
 		getApi().getEventManager().register(new MessageSendEvent(){
 			public boolean onSend(String message){
 				message = message.toLowerCase();
-				System.out.println(ip);
-				System.out.println("FETTI");
 				if(ip.equalsIgnoreCase("einfachmc.de")){
-					System.out.println("HALLO ES GEHT");
 					switch(message){
 						case "/hub":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							break;
+							return true;
 						case "/l":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
 							break;
 						case "/lobby":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							break;
+							return true;
 						case "/coins":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger coins set 1");
-							break;
+							return true;
 						case "/gm 0":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 0");
-							break;
+							return true;
 						case "/gm 1":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 1");
-							break;
+							return true;
 						case "/gm 2":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 2");
-							break;
+							return true;
 						case "/gm 3":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 3");
-							break;
+							return true;
 					}
 					return true;
 				}		
-				System.out.println("KACK ADDON");
+				System.out.println("ERROR KACK ADDON");
 				return false;
 			}
 		});
