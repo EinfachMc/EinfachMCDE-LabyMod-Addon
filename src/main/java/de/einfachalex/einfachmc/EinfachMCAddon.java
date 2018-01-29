@@ -39,8 +39,8 @@ public class EinfachMCAddon extends LabyModAddon {
 		instance = this;
 		
 		getApi().getEventManager().registerOnJoin(serverData -> {
-            ip = serverData.getIp();          
-        });
+			ip = serverData.getIp();          
+		});
 		
 		getApi().getEventManager().register(new MessageSendEvent(){
 			public boolean onSend(String message){
