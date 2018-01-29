@@ -35,7 +35,7 @@ public class EinfachMCAddon extends LabyModAddon {
 
 	@Override
 	public void onEnable() {
-		System.out.println("EinfachMC Addon enabled.");
+		System.out.println(prefix+" EinfachMC Addon enabled.");
 		instance = this;
 		
 		getApi().getEventManager().registerOnJoin(serverData -> {
@@ -76,7 +76,6 @@ public class EinfachMCAddon extends LabyModAddon {
 					}
 					return true;
 				}		
-				System.out.println("ERROR KACK ADDON");
 				return false;
 			}
 		});
