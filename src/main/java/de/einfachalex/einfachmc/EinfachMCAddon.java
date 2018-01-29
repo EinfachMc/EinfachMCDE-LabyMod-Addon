@@ -51,30 +51,30 @@ public class EinfachMCAddon extends LabyModAddon {
 					switch(message){
 						case "/hub":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							break;
+							return true;
 						case "/l":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							break;
+							return true;
 						case "/lobby":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
-							break;
+							return true;
 						case "/coins":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger coins set 1");
-							break;
+							return true;
 						case "/gm 0":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 0");
-							break;
+							return true;
 						case "/gm 1":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 1");
-							break;
+							return true;
 						case "/gm 2":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 2");
-							break;
+							return true;
 						case "/gm 3":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 3");
-							break;
+							return true;
 					}
-					return true;
+					
 				}		
 				return false;
 			}
