@@ -64,6 +64,11 @@ public class EinfachMCAddon extends LabyModAddon {
 						case "/joinme":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger joinme set 1");
 							return true;
+						case "/tutorial":
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger tutorial set 1");
+							return true;
+						case "/tutorial stop":
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger tutorial set -1");
 						case "/gm 0":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 0");
 							return true;
