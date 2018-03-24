@@ -1,5 +1,11 @@
 {
   "uuid": "%uuid%",
   "name": "EinfachMCAddon",
+  "mainClass": "de.einfachalex.einfachmc.EinfachMCAddon",
+  "description": "This Addon allows you to use simple commands like \"/hub\", \"/coins\", etc. on our Minecraft-Server \"einfachmc.de\". \nOur Minecraft Server is fully Vanilla, which means there are no Plugins, only Command blocks, and Functions. Because of that, we don't have Commands like \"/hub\". To get to our Hub normally you would have to use \"/trigger hub set 1\". To query your coins \"/trigger coins set 1\". With this Addon, you can simply use \"/hub\" and \"/coins\" like you know it from other Servers.",
+  "version": 1,
+  "author": "EinfachAlexYT",
+  "category": 3,
+  "icon": "http://einfachmc.de/scheishaufen.png"
   "mainClass": "de.einfachalex.einfachmc.EinfachMCAddon"
 }
