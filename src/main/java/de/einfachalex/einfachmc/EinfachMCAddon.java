@@ -73,8 +73,12 @@ public class EinfachMCAddon extends LabyModAddon {
 						case "/start":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger start set 1");
 							return true;
+						case "/spielzeit":
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger spielzeit set 1");
+							return true;
 						case "/stats":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger stats set 1");
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage("Bin ein Stats Schwitzer Kiddy!");
 							return true;
 						case "/gm 0":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 0");
@@ -89,10 +93,18 @@ public class EinfachMCAddon extends LabyModAddon {
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/gamemode 3");
 							return true;
 					}
-					
-				}		
-				return false;
-			}
+					if(message.startsWith("/report")){
+						if(message.length() >= 8){
+							String[] msgparts = message.split(" ");
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger report set " + msgparts[1]);
+						}else{
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage("[EMC-Addon] " + LabyModCore.getMinecraft().getPlayer() + " du hast irgendwas verkackt!");
+						}
+					return true;
+					}		
+				}
+				return false;				
+			};
 		});
 	}
 }
