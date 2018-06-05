@@ -15,8 +15,8 @@ import java.util.List;
 
 public class EinfachMCAddon extends LabyModAddon {
 
-	private static String prefix = "[EMC-Addon]";
-	private String ip = "";
+	private static String prefix = "[EMC-Addon] ";
+	private String ip;
 	private static EinfachMCAddon instance;
 	
 	
@@ -30,24 +30,32 @@ public class EinfachMCAddon extends LabyModAddon {
 
 	@Override
 	public void onDisable() {
-		System.out.println(prefix + " diabled.");
+		System.out.println(prefix + "disabled");
 	}
 
 	@Override
 	public void onEnable() {
-		System.out.println(prefix+" EinfachMC Addon enabled.");
+		System.out.println(prefix + "enabled.");
 		instance = this;
 		
-		getApi().getEventManager().registerOnJoin(serverData -> {
-            ip = serverData.getIp();
-        });       
-
-
+		getApi().getEventManager().registerOnJoin(new Consumer<ServerData>() {
+		    @Override
+		    public void accept(ServerData serverData) {
+			ip = serverData.getIp();
+		    }
+		});
+		
+		getApi().getEventManager().registerOnQuit(new Consumer<ServerData>() {
+		    @Override
+		    public void accept(ServerData serverData) {
+			ip = null;
+		    }
+		});      
 		
 		getApi().getEventManager().register(new MessageSendEvent(){
 			public boolean onSend(String message){
 				message = message.toLowerCase();
-				if(ip.equalsIgnoreCase("einfachmc.de")){
+				if("einfachmc.de".equalsIgnoreCase(ip)){
 					switch(message){
 						case "/hub":
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger hub set 1");
@@ -98,7 +106,7 @@ public class EinfachMCAddon extends LabyModAddon {
 							String[] msgparts = message.split(" ");
 							LabyModCore.getMinecraft().getPlayer().sendChatMessage("/trigger report set " + msgparts[1]);
 						}else{
-							LabyModCore.getMinecraft().getPlayer().sendChatMessage("[EMC-Addon] " + LabyModCore.getMinecraft().getPlayer() + " du hast irgendwas verkackt!");
+							LabyModCore.getMinecraft().getPlayer().sendChatMessage(prefix + LabyModCore.getMinecraft().getPlayer() + " du hast irgendwas verkackt!");
 						}
 					return true;
 					}		
